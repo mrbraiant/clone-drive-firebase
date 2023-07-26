@@ -1,10 +1,31 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
-import './App.css';
 import Home from './home';
+import './App.css';
+import { auth, provider } from './firebase';
 
 function App() {
   const [login, setLogin] = useState(null);
+
+  const handleLogin = (e) => {
+    e.preventDefault(); 
+    auth.signInWithPopup(provider).then((result) => {
+      if(result) {
+        setLogin({email: result.user.email});
+      }
+    })  
+  };
+
+  useEffect(() => {
+    auth.onAuthStateChanged((value) => {
+      setLogin({
+        name: value.displayName,
+        email: value.email,
+        image: value.photoURL,
+      });
+      alert('Welcome back '+ value.displayName);
+    })
+  },[])
 
   return (
     <div className="App">
@@ -14,7 +35,7 @@ function App() {
             <Switch>
   
                 <Route path='/home'>
-                  <Home />
+                  <Home login={login}/>
                 </Route>
 
                 <Route path='/'>
@@ -24,7 +45,7 @@ function App() {
             </Switch>
           </Router>
         ) : (
-          <div><a href='#'>Login</a></div>
+          <div><a onClick={(e) => handleLogin(e)} href='#'>Login</a></div>
         )
       }
     </div>
