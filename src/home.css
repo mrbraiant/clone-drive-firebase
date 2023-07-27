@@ -1,4 +1,7 @@
-
+.content{
+    background-color: #F7F9FC;
+    height: 100vh;
+}
 .navbar{
     display: flex;
     flex-direction: row;
@@ -42,10 +45,14 @@
     height: inherit;
 }
 
+.sidebar-container{
+    display: flex;
+    flex-direction: row;
+}
 .sidebar{
-    padding: 16px;
+    padding: 8px 16px;
     background-color: #F7F9FC;
-    width: 256px;
+    width: 266px;
 }
 .sidebar label{
     font-size: 14px;
@@ -53,4 +60,51 @@
 }
 .hidden-input{
     display: none;
+}
+.menu-box{
+    padding: 1rem 0;
+}
+.menu-icon-selected{
+    display: flex;
+    flex-direction: row; 
+    gap: 1rem; 
+    background-color: #C2E7FF; 
+    border-radius: 50px; 
+    padding: 0.3rem 1rem;
+    cursor: pointer;
+    align-items: center;
+}
+.menu-icon-not-selected{
+    display: flex;
+    flex-direction: row; 
+    gap: 1rem; 
+    background-color: inherit; 
+    border-radius: 50px; 
+    padding: 0.3rem 1rem;
+    cursor: pointer;
+    align-items: center;
+}
+.menu-icon-not-selected:hover{
+    background-color: #E3E3E3;
+}
+.drive-content{
+    background-color: #fff;
+    border-radius: 18px;
+    padding: 1rem 1.5rem;
+    width: calc(100% - 266px);
+}
+.drive-content-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.header-icons{
+    display: flex;
+    gap: 0.5rem;
+}
+.progress-box{
+    margin: 0.5rem 0px 0px 1rem;
+}
+.progress-box p{
+    margin-top: 0.5rem;
 }
