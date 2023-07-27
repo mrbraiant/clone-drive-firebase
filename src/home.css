@@ -1,3 +1,4 @@
+
 .navbar{
     display: flex;
     flex-direction: row;
@@ -5,20 +6,18 @@
     padding: 11px;
     height: 64px;
     width: 100%;
+    background-color: #F7F9FC;
 }
-.navbar input{
-    /* border-radius: 50px; */
-    /* border: 0;
-    background-color: #edf2fc;
-    width: 100%;
-    max-width: 568px;
-    padding-left: 18px; */
+.navbar svg{
+    width: 24px;
+    height: 24px
 }
 .logo{
     display: flex;
     flex-direction: row;
-    margin: 4px 13px;
+    margin: 4px 15px;
     gap: 0.7rem;
+    width: '256px';
 }
 .logo h2{
     font-weight: 400;
@@ -30,6 +29,9 @@
     width: 36px;
     height: 32px;
 }
+.icons-box{
+    margin-left: 5%;
+}
 .profile{
     align-self: center;
 }
@@ -38,4 +40,17 @@
     width: 32px;
     height: 32px;
     height: inherit;
+}
+
+.sidebar{
+    padding: 16px;
+    background-color: #F7F9FC;
+    width: 256px;
+}
+.sidebar label{
+    font-size: 14px;
+    cursor: pointer;
+}
+.hidden-input{
+    display: none;
 }
