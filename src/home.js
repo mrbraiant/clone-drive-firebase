@@ -48,6 +48,9 @@ function Home(props) {
   };
   const handleClose = () => {
     setAnchorEl(null);
+  };
+
+  const handleSignOut = () => {
     auth
       .signOut()
       .then(() => {
@@ -58,8 +61,6 @@ function Home(props) {
         alert(error);
       });
   };
-
-  console.log('files', files);
 
   const handleUpload = (uid) => {
     let attachment = document.querySelector(
@@ -184,11 +185,12 @@ function Home(props) {
 
           <div className="profile">
             <img
-              src={props?.login?.image}
+              src={`${props?.login?.image}`}
               alt="profile"
               style={{ cursor: 'pointer' }}
               onClick={handleOpenMenu}
             />
+
             <Menu
               id="basic-menu"
               anchorEl={anchorEl}
@@ -198,8 +200,13 @@ function Home(props) {
                 'aria-labelledby': 'basic-button',
               }}
             >
-              <MenuItem onClick={handleClose}>
-                Logout
+              <MenuItem
+                onClick={() => {
+                  handleSignOut();
+                  handleClose();
+                }}
+              >
+                Sign out
               </MenuItem>
             </Menu>
           </div>

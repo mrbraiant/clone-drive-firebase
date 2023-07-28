@@ -23,7 +23,6 @@ function App() {
 
   useEffect(() => {
     auth.onAuthStateChanged((value) => {
-      console.log('value', value);
       setLogin({
         name: value.displayName,
         email: value.email,
@@ -49,9 +48,9 @@ function App() {
           </Switch>
         </Router>
       ) : (
-        <div>
+        <div className="login-content">
           <a onClick={(e) => handleLogin(e)} href="#">
-            Login
+            Sign in with Google
           </a>
         </div>
       )}
