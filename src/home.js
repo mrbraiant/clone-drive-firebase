@@ -67,7 +67,7 @@ function Home(props) {
     ).files[0];
 
     const uploadTask = storage
-      .ref('drive/' + attachment.name)
+      .ref('drive/' + uid + '/files/' + attachment.name)
       .put(attachment);
 
     uploadTask.on(
@@ -84,7 +84,7 @@ function Home(props) {
       },
       function () {
         storage
-          .ref('drive/' + attachment.name)
+          .ref('drive/' + uid + '/files/' + attachment.name)
           .getDownloadURL()
           .then((url) => {
             db.collection('drive')
@@ -351,6 +351,7 @@ function Home(props) {
               display: 'flex',
               flexWrap: 'wrap',
               gap: '1rem',
+              margin: '1rem 0px',
             }}
           >
             {files?.map((file, index) => {
@@ -364,6 +365,7 @@ function Home(props) {
                       height: '199px',
                       padding: '1rem',
                       backgroundColor: '#F2F6FC',
+                      borderRadius: '15px',
                     }}
                   >
                     <div
@@ -395,7 +397,10 @@ function Home(props) {
                     >
                       <Download sx={{ color: 'blue' }} />
                       <Typography>
-                        <a href={file.attachmentURL}>
+                        <a
+                          href={file.attachmentURL}
+                          target="blank"
+                        >
                           Download
                         </a>
                       </Typography>
